@@ -45,5 +45,13 @@ footer {
   color: #6b6656;
 }
 
+@media (prefers-color-scheme: dark) {
+  body { background: #1f211c; color: #e6e1d3; }
+  h1, .birds h2 { color: #a9c98f; }
+  header p, footer { color: #a39d8a; }
+  .birds li { background: #2a2d26; border-color: #3c4036; border-left-color: #7a9a5c; }
+  footer { border-top-color: #3c4036; }
+}
+
 .birds h2 { font-size: 1.1rem; margin: 0 0 0.35rem; color: #3d5a3a; }
 .birds p { margin: 0; font-size: 0.95rem; }
