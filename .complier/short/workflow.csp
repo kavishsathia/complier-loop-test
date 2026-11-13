@@ -11,3 +11,7 @@ Unchecked = Permit(edit, \ _ @ Unchecked)
 Checked   = Permit(edit, \ _ @ Unchecked)
          [] Permit(check, \ v @ (if v == done then Checked else Unchecked))
          [] Permit(commit, \ _ @ SKIP)
+
+Agent  = ControllableCHAOS
+System = prioritise(Agent [| {|attempt, allow, deny, result, refuse|} |] ComplierGuard(Policy),
+                    <{|attempt|}, {refuse}>)

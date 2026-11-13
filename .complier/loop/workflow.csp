@@ -26,3 +26,7 @@ Notify(s)  = Permit(notify, \ _ @ Check(s))
 Check(s)   = Permit(check_time, \ v @ Decide(s, v))
 Decide(s, minutes.now) = if (now - s + 120) % 120 >= 30 then SKIP else Edit(s, 0)
 Decide(s, failed)      = Check(s)
+
+Agent  = ControllableCHAOS
+System = prioritise(Agent [| {|attempt, allow, deny, result, refuse|} |] ComplierGuard(Policy),
+                    <{|attempt|}, {refuse}>)
